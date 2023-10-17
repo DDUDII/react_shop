@@ -4,5 +4,5 @@
 
 ### 🔎 미리보기 
 
-<img src="https://github.com/DDUDII/shop_react/assets/131181283/dc00432d-a8f7-4351-806a-c30a41ea1b6e).png"  width="85%" height="85%"/>
+<img src="https://github.com/DDUDII/shop_react/assets/131181283/dc00432d-a8f7-4351-806a-c30a41ea1b6e).png"  width="90%" height="90%"/>
 
