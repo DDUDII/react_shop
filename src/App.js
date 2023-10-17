@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {  Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
 import data from './data';
 import { useState } from 'react';
+import { Route, Routes, Link } from 'react-router-dom';
 
 function App() {
   let [clothes, setClothes] = useState(data)
@@ -11,19 +12,22 @@ function App() {
     <div className="App">
   <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand href="#home">Raza</Navbar.Brand>
+          <Navbar.Brand href="/">Raza</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#All">All</Nav.Link>
-            <Nav.Link href="#Woman">Woman</Nav.Link>
-            <Nav.Link href="#Man">Man</Nav.Link>
-            <Nav.Link href="#Kids">Kids</Nav.Link>
-            <Nav.Link href="#Raza-Home">Raza Home</Nav.Link>
-            <Nav.Link href="#cart">Cart</Nav.Link>
+            <Nav.Link href="/Woman">Woman</Nav.Link>
+            <Nav.Link href="/Man">Man</Nav.Link>
+            <Nav.Link href="/Kids">Kids</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 <div className='main-bg'></div>
-<Container>
+
+
+
+<Routes>
+        <Route path="/" element={
+    <Container>
       <Row>
         {clothes.map((item, i)=> {
           return (
@@ -31,7 +35,13 @@ function App() {
           )
         })}
       </Row>
-    </Container>
+    </Container>} />
+      <Route path="/Woman" element={<div>여자</div>} />
+      <Route path="/Man" element={<div>남자</div>} />
+      <Route path="/Kids" element={<div>아동</div>} />
+      <Route path="/details" element={<div>상세페이지</div>} />
+      <Route path="/cart" element={<div>장바구니</div>} />
+      </Routes>
 
     </div>
   );
