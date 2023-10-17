@@ -1,9 +1,12 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {  Navbar, Container, Nav, Row, Col, Form } from 'react-bootstrap';
+import {  Navbar, Container, Nav, Row, Col } from 'react-bootstrap';
+import data from './data';
+import { useState } from 'react';
 
 function App() {
+  let [clothes, setClothes] = useState(data)
   return (
     <div className="App">
   <Navbar bg="light" data-bs-theme="light">
@@ -22,31 +25,26 @@ function App() {
 <div className='main-bg'></div>
 <Container>
       <Row>
-        <Col sm>
-          <img className='shop-img' src={process.env.PUBLIC_URL + '/img/flowergirl.jpg'} alt="woman-img" />
-          <h4 className='shop-name'>검정 자켓</h4>
-          <p className='shop-price'>$100</p>
-        </Col>
-        <Col sm>          
-        <img className='shop-img' src={process.env.PUBLIC_URL + '/img/funky.jpg'} alt="woman-img" />
-          <h4 className='shop-name'>가죽 팬츠</h4>
-          <p className='shop-price'>$70</p>
-          </Col>
-        <Col sm>          
-        <img className='shop-img' src={process.env.PUBLIC_URL + '/img/nikegirl.jpg'} alt="woman-img" />
-          <h4 className='shop-name'>조커 팬츠</h4>
-          <p className='shop-price'>$50</p>
-          </Col>
-          <Col sm>          
-        <img className='shop-img' src={process.env.PUBLIC_URL + '/img/white-t.jpg'} alt="woman-img" />
-          <h4 className='shop-name'>베이직 티셔츠</h4>
-          <p className='shop-price'>$15</p>
-          </Col>
+        {clothes.map((item, i)=> {
+          return (
+            <Card key={i} img={item.img} title={item.title} price={item.price} />
+          )
+        })}
       </Row>
     </Container>
 
     </div>
   );
+}
+
+function Card(props) {
+return (
+  <Col sm>
+  <img className='shop-img' src={process.env.PUBLIC_URL + props.img} alt="woman-img" />
+  <h4 className='shop-name'>{props.title}</h4>
+  <p className='shop-price'>{props.price}</p>
+</Col>
+)
 }
 
 export default App;
