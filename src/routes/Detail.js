@@ -15,7 +15,9 @@ function Detail({ clothes }) {
             src={process.env.PUBLIC_URL + item.img}
             alt={item.title}
           />
+
           <h4 className="shop-name">{item.title}</h4>
+
           <p className="shop-content">{item.content}</p>
           <p className="shop-price">{item.price}</p>
 
