@@ -4,7 +4,7 @@
 
 .main-bg {
   height: 250px;
-  background-image: url('/public/img/soho.jpg');
+  background-image: url("/public/img/soho.jpg");
   background-size: cover;
   background-position: center;
 }
@@ -19,6 +19,7 @@
 .shop-name {
   font-size: 18px;
   color: rgb(61, 61, 61);
+  text-decoration-line: none;
 }
 
 .shop-price {

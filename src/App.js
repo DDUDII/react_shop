@@ -14,6 +14,7 @@ import Detail from "./routes/Detail";
 import { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import Card from "./conponents/Card";
+import axios from "axios";
 
 function App() {
   let [clothes, setClothes] = useState(data);
