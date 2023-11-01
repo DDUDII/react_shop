@@ -25,7 +25,6 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link href="/Woman">Woman</Nav.Link>
             <Nav.Link href="/Man">Man</Nav.Link>
-            <Nav.Link href="/Kids">Kids</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
           </Nav>
         </Container>
@@ -45,6 +44,7 @@ function App() {
                       img={item.img}
                       title={item.title}
                       price={item.price}
+                      id={item.id}
                     />
                   );
                 })}
@@ -54,7 +54,6 @@ function App() {
         />
         <Route path="/Woman" element={<div>여자</div>} />
         <Route path="/Man" element={<div>남자</div>} />
-        <Route path="/Home" element={<div>인테리어</div>} />
         <Route path="/details/:id" element={<Detail clothes={clothes} />} />
         <Route path="/cart" element={<div>장바구니</div>} />
         <Route path="*" element={<div>없는 페이지 입니다.</div>} />
