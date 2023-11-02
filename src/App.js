@@ -17,7 +17,7 @@ import Card from "./conponents/Card";
 import axios from "axios";
 
 function App() {
-  let [clothes, setClothes] = useState(data);
+  const [clothes, setClothes] = useState(data);
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
@@ -25,7 +25,7 @@ function App() {
           <Navbar.Brand href="/">Raza</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/Woman">Woman</Nav.Link>
-            <Nav.Link href="/Man">Man</Nav.Link>
+            <Nav.Link href="/Shoes">Shoes</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
           </Nav>
         </Container>
@@ -36,25 +36,42 @@ function App() {
         <Route
           path="/"
           element={
-            <Container>
-              <Row>
-                {clothes.map((item, i) => {
-                  return (
-                    <Card
-                      key={i}
-                      img={item.img}
-                      title={item.title}
-                      price={item.price}
-                      id={item.id}
-                    />
-                  );
-                })}
-              </Row>
-            </Container>
+            <>
+              <Container>
+                <Row>
+                  {clothes.map((item, i) => {
+                    return (
+                      <Card
+                        key={i}
+                        img={item.img}
+                        title={item.title}
+                        price={item.price}
+                        id={item.id}
+                      />
+                    );
+                  })}
+                </Row>
+              </Container>
+              <button
+                onClick={() => {
+                  axios
+                    .get("https://codingapple1.github.io/shop/data3.json")
+                    .then((shoes) => {
+                      let item = [...clothes, ...shoes.data];
+                      setClothes(item);
+                    })
+                    .catch(() => {
+                      console.log("로딩중입니다.");
+                    });
+                }}
+              >
+                더보기
+              </button>
+            </>
           }
         />
         <Route path="/Woman" element={<div>여자</div>} />
-        <Route path="/Man" element={<div>남자</div>} />
+        <Route path="/Shoes" element={<div>Shoes</div>} />
         <Route path="/details/:id" element={<Detail clothes={clothes} />} />
         <Route path="/cart" element={<div>장바구니</div>} />
         <Route path="*" element={<div>없는 페이지 입니다.</div>} />
