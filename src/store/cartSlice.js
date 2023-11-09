@@ -20,9 +20,22 @@ const cart = createSlice({
       state[cartId].count--;
     },
     addItem(state, action) {
-      state.push(action.payload);
+      const { id, name } = action.payload;
+      const existingItem = state.find((item) => item.id === id);
+      if (existingItem) {
+        existingItem.count++;
+      } else {
+        state.push({ id, name, count: 1 });
+      }
+    },
+    removeItem(state, action) {
+      const { id } = action.payload;
+      const index = state.findIndex((item) => item.id === id);
+      if (index !== -1) {
+        state.splice(index, 1);
+      }
     },
   },
 });
-export let { addCount, minusCount, addItem } = cart.actions;
+export let { addCount, minusCount, addItem, removeItem } = cart.actions;
 export default cart;
