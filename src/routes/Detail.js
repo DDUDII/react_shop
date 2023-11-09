@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { Col, Container, Row, Nav } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
+import { addItem } from "../store/cartSlice";
 
 function Detail({ clothes }) {
+  const dispatch = useDispatch();
   let { id } = useParams();
   const itemId = parseInt(id, 10); //URL에서 얻은 매개변수는 URL 경로에서 가져온 것이므로 일반적으로 문자열
   const item = clothes.find((item) => item.id === itemId);
+  const { title, img, content, price } = item;
   const [tap, setTap] = useState(0);
 
   const tapHandler = (eventKey) => {
@@ -19,16 +23,24 @@ function Detail({ clothes }) {
         <Col md>
           <img
             className="shop-img"
-            src={process.env.PUBLIC_URL + item.img}
+            src={process.env.PUBLIC_URL + img}
             alt={item.title}
           />
 
-          <h4 className="shop-name">{item.title}</h4>
+          <h4 className="shop-name">{title}</h4>
 
-          <p className="shop-content">{item.content}</p>
-          <p className="shop-price">{item.price}</p>
+          <p className="shop-content">{content}</p>
+          <p className="shop-price">{price}</p>
 
-          <button className="btn btn-danger">주문하기</button>
+          <button
+            className="btn btn-danger"
+            onClick={() => {
+              alert("장바구니에 추가");
+              dispatch(addItem({ id: itemId, name: title, count: 1 }));
+            }}
+          >
+            주문하기
+          </button>
         </Col>
       </Row>
       <Nav variant="tabs" defaultActiveKey="link0">
