@@ -15,6 +15,7 @@ import { useState } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import Card from "./conponents/Card";
 import axios from "axios";
+import Cart from "./routes/Cart";
 
 function App() {
   const [clothes, setClothes] = useState(data);
@@ -26,7 +27,7 @@ function App() {
           <Nav className="me-auto">
             <Nav.Link href="/Woman">Woman</Nav.Link>
             <Nav.Link href="/Shoes">Shoes</Nav.Link>
-            <Nav.Link href="/cart">Cart</Nav.Link>
+            <Nav.Link href="/Cart">Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -73,7 +74,7 @@ function App() {
         <Route path="/Woman" element={<div>여자</div>} />
         <Route path="/Shoes" element={<div>Shoes</div>} />
         <Route path="/details/:id" element={<Detail clothes={clothes} />} />
-        <Route path="/cart" element={<div>장바구니</div>} />
+        <Route path="/cart" element={<Cart clothes={clothes} />} />
         <Route path="*" element={<div>없는 페이지 입니다.</div>} />
       </Routes>
     </div>
