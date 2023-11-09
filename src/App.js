@@ -23,11 +23,19 @@ function App() {
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
         <Container>
-          <Navbar.Brand href="/">Raza</Navbar.Brand>
+          <Navbar.Brand as={Link} to="/">
+            Raza
+          </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/Woman">Woman</Nav.Link>
-            <Nav.Link href="/Shoes">Shoes</Nav.Link>
-            <Nav.Link href="/Cart">Cart</Nav.Link>
+            <Nav.Link as={Link} to="/Woman">
+              Woman
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Shoes">
+              Shoes
+            </Nav.Link>
+            <Nav.Link as={Link} to="/Cart">
+              Cart
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -74,7 +82,7 @@ function App() {
         <Route path="/Woman" element={<div>여자</div>} />
         <Route path="/Shoes" element={<div>Shoes</div>} />
         <Route path="/details/:id" element={<Detail clothes={clothes} />} />
-        <Route path="/cart" element={<Cart clothes={clothes} />} />
+        <Route path="/Cart" element={<Cart clothes={clothes} />} />
         <Route path="*" element={<div>없는 페이지 입니다.</div>} />
       </Routes>
     </div>
