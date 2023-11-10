@@ -35,7 +35,6 @@ function Detail({ clothes }) {
           <button
             className="btn btn-danger"
             onClick={() => {
-              alert("장바구니에 추가");
               dispatch(addItem({ id: itemId, name: title, count: 1 }));
             }}
           >
