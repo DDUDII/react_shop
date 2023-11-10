@@ -1,0 +1,8 @@
+.watchedTitle {
+  margin-top: 40px;
+}
+
+.watchedContent {
+  display: flex;
+  flex-wrap: wrap;
+}

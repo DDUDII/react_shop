@@ -16,6 +16,7 @@ import { Route, Routes, Link } from "react-router-dom";
 import Card from "./conponents/Card";
 import axios from "axios";
 import Cart from "./routes/Cart";
+import Watched from "./conponents/Watched";
 
 function App() {
   const [clothes, setClothes] = useState(data);
@@ -59,6 +60,7 @@ function App() {
                       />
                     );
                   })}
+                  <Watched />
                 </Row>
               </Container>
               <button
