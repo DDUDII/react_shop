@@ -22,6 +22,7 @@ const cart = createSlice({
     addItem(state, action) {
       const { id, name } = action.payload;
       const existingItem = state.find((item) => item.id === id);
+
       if (existingItem) {
         existingItem.count++;
       } else {
@@ -29,11 +30,9 @@ const cart = createSlice({
       }
     },
     removeItem(state, action) {
-      const { id } = action.payload;
-      const index = state.findIndex((item) => item.id === id);
-      if (index !== -1) {
-        state.splice(index, 1);
-      }
+      const id = action.payload;
+      const newState = state.filter((item) => item.id !== id);
+      return newState;
     },
   },
 });
