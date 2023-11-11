@@ -1,8 +1,45 @@
+.container {
+  margin: 10px;
+  margin-left: 20px;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .watchedTitle {
-  margin-top: 40px;
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .watchedContent {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.watchedImg {
+  width: 80px;
+  height: 110px;
+  margin: 10px;
+}
+
+.removeBtn {
+  background-color: #dddddd;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease;
+  width: 70px;
+  height: 40px;
+}
+
+.removeBtn:hover {
+  background-color: #b1b0b0;
 }
