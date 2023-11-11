@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Container, Row, Nav } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import { addItem } from "../store/cartSlice";
+import WATCHED_KEY from "../assets/constant";
+import { addWatched } from "../assets/constant";
 
 function Detail({ clothes }) {
   const dispatch = useDispatch();
@@ -16,7 +18,9 @@ function Detail({ clothes }) {
   const tapHandler = (eventKey) => {
     setTap(Number(eventKey));
   };
-
+  useEffect(() => {
+    addWatched(itemId);
+  }, [itemId]);
   return (
     <Container>
       <Row>
