@@ -2,11 +2,16 @@ import { Col } from "react-bootstrap";
 import s from "./watched.module.css";
 import { getWatched, removeWatched } from "../assets/constant";
 import WATCHED_KEY from "../assets/constant";
+import { useEffect, useState } from "react";
 
 function Watched({ clothes }) {
-  const watchedItems = getWatched();
+  const [watchedItems, setWatchedItems] = useState(getWatched());
+  useEffect(() => {
+    setWatchedItems(getWatched());
+  }, []);
   const removeItems = () => {
     removeWatched();
+    setWatchedItems([]);
   };
   return (
     <Col sm>
