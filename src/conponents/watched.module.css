@@ -1,6 +1,6 @@
 .container {
-  margin: 10px;
-  margin-left: 20px;
+  margin-top: 20px;
+
   border: 1px solid gray;
   display: flex;
   flex-direction: column;
@@ -23,7 +23,7 @@
 .watchedImg {
   width: 80px;
   height: 110px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 .removeBtn {
@@ -32,12 +32,11 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  font-size: 14px;
+  margin-bottom: 10px;
   transition: background-color 0.3s ease;
-  width: 70px;
-  height: 40px;
+  width: 60px;
+  height: 30px;
 }
 
 .removeBtn:hover {
