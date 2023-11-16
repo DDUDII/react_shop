@@ -52,18 +52,12 @@ function App() {
             <>
               <Container>
                 <Row>
-                  {clothes.map((item, i) => {
-                    return (
-                      <Card
-                        key={i}
-                        img={item.img}
-                        title={item.title}
-                        price={item.price}
-                        id={item.id}
-                      />
-                    );
-                  })}
-                  <Watched clothes={clothes} />
+                  <Col md={10}>
+                    <Card clothes={clothes} />
+                  </Col>
+                  <Col md={2}>
+                    <Watched clothes={clothes} />
+                  </Col>
                 </Row>
               </Container>
               <button
