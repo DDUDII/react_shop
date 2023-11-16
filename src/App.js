@@ -17,9 +17,11 @@ import Card from "./conponents/Card";
 import axios from "axios";
 import Cart from "./routes/Cart";
 import Watched from "./conponents/Watched";
+import { useQuery } from "@tanstack/react-query";
 
 function App() {
   const [clothes, setClothes] = useState(data);
+
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light">
@@ -38,6 +40,7 @@ function App() {
               Cart
             </Nav.Link>
           </Nav>
+          <Nav className="ms-auto">kim, 반가워요</Nav>
         </Container>
       </Navbar>
       <div className="main-bg"></div>
